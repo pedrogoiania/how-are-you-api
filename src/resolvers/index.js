@@ -1,7 +1,5 @@
-const ownerResolver = require('./Owner');
-const partyResolver = require('./Party');
+const feelingResolver = require('./Feeling');
 
 module.exports = [
-  ownerResolver,
-  partyResolver,
+  feelingResolver,
 ];

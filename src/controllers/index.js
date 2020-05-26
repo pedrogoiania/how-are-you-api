@@ -1,5 +1,4 @@
-/* eslint global-require: "off" */
-module.exports = {
-  OwnerController: require('./Owner'),
-  PartyController: require('./Party'),
-};
+/**
+ * @todo create a controller if need
+ */
+module.exports = {};

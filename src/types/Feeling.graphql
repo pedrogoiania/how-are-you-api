@@ -1,0 +1,8 @@
+type Feeling {
+    title: String @translate
+    icon: String
+}
+
+type Query {
+    getAllFeelings: [Feeling]
+}

@@ -5,9 +5,33 @@ const types = require('./types');
 const controllers = require('./controllers');
 const extensions = require('./extensions');
 
+const directives = require('./directives');
+
+const schemaDirectives = {
+  ...directives,
+};
+
+const directivesTypesDefs = [
+  ...Object.values({
+    ...directives,
+  }).map(item => item.declaration()),
+];
+
+const {
+  FeelingsAPI,
+} = require('./dataSources');
+
+const dataSources = () => ({
+  FeelingsAPI: new FeelingsAPI(),
+});
+
+
 require('./utils/db');
 
-const typeDefs = [...types];
+const typeDefs = [
+  ...directivesTypesDefs,
+  ...types,
+];
 
 const context = ({ req }) => ({
   headers: req.headers,
@@ -21,6 +45,8 @@ const server = new ApolloServer({
   playground: true,
   introspection: true,
   context,
+  dataSources,
+  schemaDirectives,
   extensions,
 });
 
