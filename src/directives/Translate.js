@@ -16,7 +16,6 @@ class TranslateDirective extends SchemaDirectiveVisitor {
     return translationService.getTranslationByKey(translationKey, acceptLanguage);
   }
 
-
   visitFieldDefinition(field) {
     const originalResolver = field.resolve;
     const { isNullable } = this.args;

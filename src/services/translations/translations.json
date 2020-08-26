@@ -1,6 +1,10 @@
 {
     "en-us": [
         {
+            "key": "felling.description",
+            "value": "Feeling description"
+        },
+        {
             "key": "feeling.happy",
             "value": "happy"
         },
@@ -95,6 +99,10 @@
     ],
     "pt-br": [
         {
+            "key": "felling.description",
+            "value": "Descrição do sentimento"
+        },
+        {
             "key": "feeling.happy",
             "value": "feliz"
         },
@@ -188,6 +196,10 @@
         }
     ],
     "es-es": [
+        {
+            "key": "felling.description",
+            "value": "Descrição do sentimento em espanho"
+        },
         {
             "key": "feeling.happy",
             "value": "contento"

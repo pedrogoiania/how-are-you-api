@@ -1,8 +1,11 @@
 type Feeling {
-    title: String @translate
-    icon: String
+  id: Int
+  title: String @translate
+  icon: String
+  description: String @translate
 }
 
 type Query {
-    getAllFeelings: [Feeling]
+  getAllFeelings: [Feeling]
+  feelingDetail(id: Int): Feeling
 }

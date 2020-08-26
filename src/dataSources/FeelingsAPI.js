@@ -1,5 +1,53 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 
+const mock = [
+  {
+    feelingDescription: 'felling.description', id: 0, value: 'feeling.happy', icon: '😊',
+  },
+  {
+    feelingDescription: 'felling.description', id: 1, value: 'feeling.confident', icon: '😍',
+  },
+  {
+    feelingDescription: 'felling.description', id: 2, value: 'feeling.proud', icon: '😎',
+  },
+  {
+    feelingDescription: 'felling.description', id: 3, value: 'feeling.greatful', icon: '😇',
+  },
+  {
+    feelingDescription: 'felling.description', id: 4, value: 'feeling.numb', icon: '😐',
+  },
+  {
+    feelingDescription: 'felling.description', id: 5, value: 'feeling.angry', icon: '😠',
+  },
+  {
+    feelingDescription: 'felling.description', id: 6, value: 'feeling.bored', icon: '🙁',
+  },
+  {
+    feelingDescription: 'felling.description', id: 7, value: 'feeling.joyful', icon: '🤗',
+  },
+  {
+    feelingDescription: 'felling.description', id: 8, value: 'feeling.optimistic', icon: '😃',
+  },
+  {
+    feelingDescription: 'felling.description', id: 9, value: 'feeling.okay', icon: '🙆‍♂️',
+  },
+  {
+    feelingDescription: 'felling.description', id: 10, value: 'feeling.depressed', icon: '😢',
+  },
+  // { id: 1, value: 'feeling.wicked', icon: '😈' },
+  // { id: 1, value: 'feeling.excited', icon: '😄' },
+  // { id: 1, value: 'feeling.anxious', icon: '😰' },
+  // { id: 1, value: 'feeling.stressed', icon: '🤒' },
+  // { id: 1, value: 'feeling.tired', icon: '😩' },
+  // { id: 1, value: 'feeling.ashamed', icon: '😳' },
+  // { id: 1, value: 'feeling.insecure', icon: '😞' },
+  // { id: 1, value: 'feeling.sad', icon: '😥' },
+  // { id: 1, value: 'feeling.envious', icon: '😏' },
+  // { id: 1, value: 'feeling.disgusted', icon: '🤢' },
+  // { id: 1, value: 'feeling.friendly', icon: '🙂' },
+  // { id: 1, value: 'feeling.positive', icon: '👌' },
+];
+
 class FeelingsAPI extends RESTDataSource {
   constructor() {
     super();
@@ -10,33 +58,21 @@ class FeelingsAPI extends RESTDataSource {
     this.baseURL = 'http://link.to.api';
   }
 
+  async getFeeling(id) {
+    const feeling = mock.find(item => item.id === id);
+
+    if (feeling) {
+      return feeling;
+    }
+
+    throw Error({
+      err: 'objeto nao encontrado',
+    });
+  }
+
   async getFeelings() {
     // return this.get();
-    return [
-      { value: 'feeling.happy', icon: '😊' },
-      { value: 'feeling.confident', icon: '😍' },
-      { value: 'feeling.proud', icon: '😎' },
-      { value: 'feeling.greatful', icon: '😇' },
-      { value: 'feeling.numb', icon: '😐' },
-      { value: 'feeling.angry', icon: '😠' },
-      { value: 'feeling.bored', icon: '🙁' },
-      { value: 'feeling.joyful', icon: '🤗' },
-      { value: 'feeling.optimistic', icon: '😃' },
-      { value: 'feeling.okay', icon: '🙆‍♂️' },
-      { value: 'feeling.depressed', icon: '😢' },
-      { value: 'feeling.wicked', icon: '😈' },
-      { value: 'feeling.excited', icon: '😄' },
-      { value: 'feeling.anxious', icon: '😰' },
-      { value: 'feeling.stressed', icon: '🤒' },
-      { value: 'feeling.tired', icon: '😩' },
-      { value: 'feeling.ashamed', icon: '😳' },
-      { value: 'feeling.insecure', icon: '😞' },
-      { value: 'feeling.sad', icon: '😥' },
-      { value: 'feeling.envious', icon: '😏' },
-      { value: 'feeling.disgusted', icon: '🤢' },
-      { value: 'feeling.friendly', icon: '🙂' },
-      { value: 'feeling.positive', icon: '👌' },
-    ];
+    return mock;
   }
 }
 

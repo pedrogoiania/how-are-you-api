@@ -25,7 +25,6 @@ const dataSources = () => ({
   FeelingsAPI: new FeelingsAPI(),
 });
 
-
 require('./utils/db');
 
 const typeDefs = [
