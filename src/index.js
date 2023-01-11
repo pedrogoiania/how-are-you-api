@@ -53,7 +53,7 @@ const running = ({ url }) => {
   console.info(`Server running on ${url}`);
 };
 
-server.listen({ port: 5000 }).then(running);
+server.listen({ port: 3004 }).then(running);
 
 module.exports = {
   server,
